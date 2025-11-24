@@ -40,7 +40,7 @@ const products = [
   },
 ]
 
-router.use(checkToken);
+//router.use(checkToken);
 
 router.get("/", (req, res) => {
   res.json(products);
