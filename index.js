@@ -1,13 +1,13 @@
 import cors from "cors";
 import express from "express";
 import swaggerUi from "swagger-ui-express";
-import productsRouter from "./src/routes/products.js";
+import productsRouter from "./src/routes/productos.js";
 import { readFileSync } from "fs";
 
 const app = express();
 app.use(express.json());
 app.use(cors({origin: "http://localhost:5173"}));
-app.use("/products", productsRouter);
+app.use("/productos", productsRouter);
 
 // Importa la documentación generada
 const swaggerFile = JSON.parse(readFileSync("./swagger-output.json"));

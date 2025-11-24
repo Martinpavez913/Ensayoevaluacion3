@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/products/": {
+    "/productos/": {
       "get": {
         "description": "",
         "responses": {
