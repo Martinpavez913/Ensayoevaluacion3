@@ -2,7 +2,6 @@ import express from "express";
 import checkToken from "../middlewares/checkToken.js";
 const router = express.Router();
 
-// Tu "Base de Datos" de Colo-Colo
 let productos = [
   {
     id: 1,
@@ -171,10 +170,6 @@ let productos = [
   }
 ];
 
-// ==========================================
-// RUTAS PÚBLICAS (Cualquiera las ve)
-// ==========================================
-
 router.get("/", (req, res) => {
   res.json(productos);
 });
@@ -188,11 +183,7 @@ router.get("/:id", (req, res) => {
     }
 });
 
-// ==========================================
-// RUTAS PRIVADAS (Requieren Token)
-// ==========================================
 
-// 1. CREATE (POST)
 router.post("/", checkToken, (req, res) => {
   // Validamos usando las llaves correctas de TU data (nombre, precioActual, etc)
   // Puedes agregar más campos obligatorios si quieres
@@ -219,7 +210,6 @@ router.post("/", checkToken, (req, res) => {
   }
 });
 
-// 2. UPDATE (PUT)
 router.put("/:id", checkToken, (req, res) => {
   const id = parseInt(req.params.id);
   const index = productos.findIndex(p => p.id === id);
@@ -239,7 +229,6 @@ router.put("/:id", checkToken, (req, res) => {
   }
 });
 
-// 3. DELETE (DELETE)
 router.delete("/:id", checkToken, (req, res) => {
   const id = parseInt(req.params.id);
   const initialLength = productos.length;
