@@ -4,6 +4,8 @@ import swaggerUi from "swagger-ui-express";
 import productsRouter from "./src/routes/productos.js";
 import autenticadorRouter from "./src/routes/autenticador.js";
 import { readFileSync } from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
